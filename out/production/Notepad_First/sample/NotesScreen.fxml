@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<Pane prefHeight="503.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <GridPane fx:id="GridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="323.0" style="-fx-background-color: #090979;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="542.0" minWidth="10.0" prefWidth="164.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="387.0" minWidth="10.0" prefWidth="161.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="449.0" minHeight="10.0" prefHeight="449.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="449.0" minHeight="10.0" prefHeight="449.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="449.0" minHeight="10.0" prefHeight="449.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="449.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="127.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextArea fx:id="lable1" onMouseClicked="#Note" onMouseMoved="#textField" prefHeight="87.0" prefWidth="128.0">
+               <GridPane.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </GridPane.margin>
+            </TextArea>
+         </children>
+      </GridPane>
+      <HBox alignment="TOP_RIGHT" layoutY="471.0" prefHeight="32.0" prefWidth="323.0" spacing="10.0" style="-fx-background-color: #d5dfd9;">
+         <children>
+            <Button fx:id="button1" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#pressButton" text="Add" />
+         </children>
+         <padding>
+            <Insets right="3.0" top="3.0" />
+         </padding>
+      </HBox>
+   </children>
+</Pane>
