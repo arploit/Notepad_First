@@ -41,7 +41,6 @@ Button  SaveButton;
         java.sql.Connection con = connection.getConnection();
         Statement st = con.createStatement();
         String query = "update notepad2 set ndesc ='"+MainTextArea.getText() +"' where nhmy = 3";
-
         int rs = st.executeUpdate(query);
         System.out.println("update query return this int " +rs);
         st.close();
