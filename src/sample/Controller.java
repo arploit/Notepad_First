@@ -12,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +22,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.*;
+import sample.Connection.*;
 
 public class Controller {
 
@@ -27,29 +30,27 @@ public class Controller {
 
 
 @FXML
-TextField lable1;
+TextArea lable1;
 
 
 @FXML
 AnchorPane label;
+    private Shape Rectangle;
 
 
-@FXML
+    @FXML
 private void newButtonClick(MouseEvent event){};
 
 
-int i = 0;
+
 
 
 
     public void textField() throws Exception{
-        if(i == 0 ) {
 
-            String url = "jdbc:mysql://localhost:3306/default";
-            String uname = "root";
-            String upass = "root@123";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, uname, upass);
+            sample.Connection connection = new sample.Connection();
+
+            Connection con = connection.getConnection();
             Statement st = con.createStatement();
             String query = "select * from notepad2 where nhmy = 3";
             ResultSet rs = st.executeQuery(query);
@@ -57,10 +58,9 @@ int i = 0;
             String name = rs.getNString("ndesc");
             rs.close();
             st.close();
+            lable1.setShape(Rectangle);
             lable1.setText(name);
-        } i++;
-
-
+            lable1.setWrapText(true); 
             lable1.setEditable(false);
 
 
@@ -69,9 +69,9 @@ int i = 0;
     }
 
 
-    public void pressButton (ActionEvent event) throws Exception{
+    public void pressButton (ActionEvent event) {
 
-        TextField tx[] = new TextField[10000];
+        TextField[] tx = new TextField[10000];
         int i = 0 ;
         tx[i] = new TextField();
 
@@ -87,8 +87,9 @@ public void Note() throws IOException {
 
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Note.fxml"));
-            Parent root = null;
-            root = (Parent) fxmlLoader.load();
+            Parent root = (Parent) fxmlLoader.load();
+            NoteController NoteController = fxmlLoader.getController();
+            NoteController.ShowInformation(lable1.getText());
             Stage stage = new Stage();
             stage.setTitle("Note");
             stage.setScene(new Scene(root));

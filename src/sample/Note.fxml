@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="121.0" prefWidth="257.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="529.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NoteController">
    <children>
-      <Button layoutX="77.0" layoutY="48.0" mnemonicParsing="false" text="Button" />
+      <HBox layoutX="-2.0" prefHeight="29.0" prefWidth="323.0">
+         <children>
+            <Button fx:id="SaveButton" mnemonicParsing="false" onAction="#SaveButton" text="Save">
+               <HBox.margin>
+                  <Insets left="265.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <VBox layoutX="1.0" layoutY="29.0" prefHeight="503.0" prefWidth="323.0">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER">
+               <content>
+                  <TextArea fx:id="MainTextArea" prefHeight="505.0" prefWidth="323.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
